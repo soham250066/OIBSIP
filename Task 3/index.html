@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com//11c75dba75.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./script.js">
+  <title>Temperature Converter</title>
+</head>
+
+<body>
+  <div class="temp_container">
+    <div class="header">
+      <span class="heading">Temperature Converter</span>
+      <span class="icon"><i class="fas fa-temperature-high"></i></span>
+    </div>
+    <div class="text_symbol">
+      <span>&#8451 &#8457</span>
+      <span class="temp_icon"><i class="fas fa-cloud-sun-rain"></i></span>
+    </div>
+
+    <div class="input_temperature">
+      <div class="celcius">
+        <span class="text_celcius">Celsius &#8451</span>
+      <input type="text" id="celsius" placeholder="Celsius" name="c" value="" />
+      </div>
+      <div class="fahrenheit">
+        <span class="text_fahrenheit">Fahrenheit &#8457</span>
+        <input type="text" id="fahrenheit" placeholder="Fahrenheit" name="f" value="" />
+      </div>
+    </div>
+    <div class="button1">
+    <button id="convert">Convert!</button>
+    <button id="clear">Reset</button>
+    </div>
+  </div>
+
+</body>
+<script>
+     document.getElementById('convert').onclick = tempConvert;
+document.getElementById('clear').onclick = clearForm;
+
+function tempConvert() {
+    
+    var celsius = document.getElementById("celsius").value;
+    var fahrenheit = document.getElementById("fahrenheit").value;
+  
+  if (fahrenheit != '') {
+        celsius = (parseFloat(fahrenheit) - 32) / 1.8;
+    } else {
+        fahrenheit = (parseFloat(celsius) * 1.8) + 32;
+    }
+    document.getElementById('fahrenheit').value = parseFloat(fahrenheit).toFixed(1);
+    document.getElementById('celsius').value = parseFloat(celsius).toFixed(1);
+}
+
+
+function clearForm() {
+    document.getElementById('fahrenheit').value = '';
+    document.getElementById('celsius').value = '';
+} 
+
+</script>
+</html>
